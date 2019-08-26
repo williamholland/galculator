@@ -752,7 +752,7 @@
                 </child>
                 <child>
                   <object class="GtkToggleButton" id="button_div">
-                    <property name="label" translatable="yes">/</property>
+                    <property name="label" translatable="yes">÷</property>
                     <property name="width_request">40</property>
                     <property name="height_request">25</property>
                     <property name="visible">True</property>
@@ -981,7 +981,7 @@
                 </child>
                 <child>
                   <object class="GtkToggleButton" id="button_mult">
-                    <property name="label" translatable="yes">*</property>
+                    <property name="label" translatable="yes">×</property>
                     <property name="width_request">40</property>
                     <property name="height_request">25</property>
                     <property name="visible">True</property>
