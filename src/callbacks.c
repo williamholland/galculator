@@ -117,7 +117,7 @@ on_operation_button_clicked(GtkToggleButton *button, gpointer user_data)
     s_cb_token        current_token;
     G_REAL            return_value, *stack;
     GtkWidget        *tbutton;
-    
+
     if (gtk_toggle_button_get_active(button) == FALSE) return;
     button_activation (button);
     
@@ -461,6 +461,8 @@ on_basic_mode_toggled (GtkMenuItem     *menuitem,
     
     ui_paper_view_destroy ();
     ui_classic_view_create ();
+
+
     ui_main_window_buttons_destroy ();
     ui_main_window_buttons_create (prefs.mode);
     update_dispctrl();
@@ -498,6 +500,8 @@ on_basic_mode_toggled (GtkMenuItem     *menuitem,
     set_window_size_minimal();
     
     display_result_set_double(display_value, current_status.number);
+
+    set_enter_button_color (prefs.bkg_color);
 }
 
 void
@@ -558,6 +562,8 @@ on_scientific_mode_toggled (GtkMenuItem *menuitem,
     set_window_size_minimal();
     
     display_result_set_double(display_value, current_status.number);
+
+    set_enter_button_color (prefs.bkg_color);
 }
 
 void
@@ -807,6 +813,7 @@ on_prefs_bkg_color_set(GtkColorButton *button, gpointer user_data)
 #endif 
 
     display_set_bkg_color (prefs.bkg_color);
+    set_enter_button_color (prefs.bkg_color);
 }
 
 void

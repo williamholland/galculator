@@ -89,6 +89,7 @@ void ui_classic_view_create();
 void ui_classic_view_destroy();
 void ui_paper_view_create();
 void ui_paper_view_destroy();
+void set_enter_button_color(char *color_string);
 
 #ifdef WITH_HILDON
 void create_hildon_menu (HildonWindow *main_window);

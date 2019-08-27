@@ -1260,6 +1260,7 @@ void ui_classic_view_create()
     view_xml = classic_view_xml;
 	
 	display_init ();
+
 }
 
 void ui_classic_view_destroy()
@@ -1321,4 +1322,24 @@ void ui_paper_view_destroy()
 	if (paper_view_vbox) gtk_widget_destroy (paper_view_vbox);
     g_object_unref(paper_view_xml);
     paper_view_xml = NULL;
+}
+
+void set_enter_button_color(char *color_string)
+{
+#if GTK_CHECK_VERSION(3, 0, 0)
+        GtkButton *enter;
+	GdkRGBA	color;
+        enter = (GtkButton *) gtk_builder_get_object (button_box_xml, "button_enter");
+	if (prefs.mode == PAPER_MODE) return;
+	gdk_rgba_parse (&color, color_string);
+	if (enter)
+        gtk_widget_override_background_color(GTK_WIDGET(enter),
+            GTK_STATE_FLAG_NORMAL, &color);
+#else
+	GdkColor	color;
+	if (prefs.mode == PAPER_MODE) return;
+	gdk_color_parse (color_string, &color);
+	if (enter)
+        gtk_widget_modify_base ((GtkWidget *)enter, GTK_STATE_NORMAL, &color);
+#endif
 }
